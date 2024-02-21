@@ -4,14 +4,13 @@ type UncontrolledAccardionPropsType = {
   titleValue: string,
 }
 
-export function UncontrolledAccardion({ titleValue }: UncontrolledAccardionPropsType) {
+export function UncontrolledAccardion(props: UncontrolledAccardionPropsType) {
 
   let [collapsed, setCollapsed] = useState(true)
 
   return (
     <div>
-      <AccardionTitle title={titleValue} />
-      <button onClick={() => { setCollapsed(!collapsed) }}>toggle</button>
+      <AccardionTitle title={props.titleValue} onClick={() => { setCollapsed(!collapsed) }} />
       {!collapsed && <AccardionBody />}
     </div>
   )
@@ -19,11 +18,12 @@ export function UncontrolledAccardion({ titleValue }: UncontrolledAccardionProps
 
 type AccardionTitlePropsType = {
   title: string
+  onClick: () => void
 }
 
-function AccardionTitle({ title }: AccardionTitlePropsType) {
+function AccardionTitle(props: AccardionTitlePropsType) {
   return (
-    <h3>{title}</h3>
+    <h3 onClick={() => { props.onClick() }}>{props.title}</h3>
   );
 }
 

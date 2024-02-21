@@ -3,24 +3,26 @@ import React from 'react';
 type AccardionPropsType = {
   titleValue: string,
   collapsed: boolean
+  onClick: () => void
 }
 
-export function Accardion({ titleValue, collapsed }: AccardionPropsType) {
+export function Accardion(props: AccardionPropsType) {
   return (
     <div>
-      <AccardionTitle title={titleValue} />
-      {!collapsed && <AccardionBody />}
+      <AccardionTitle title={props.titleValue} onClick={props.onClick} />
+      {!props.collapsed && <AccardionBody />}
     </div>
   )
 }
 
 type AccardionTitlePropsType = {
   title: string
+  onClick: () => void
 }
 
-function AccardionTitle({ title }: AccardionTitlePropsType) {
+function AccardionTitle(props: AccardionTitlePropsType) {
   return (
-    <h3>{title}</h3>
+    <h3 onClick={props.onClick}>{props.title}</h3>
   );
 }
 
