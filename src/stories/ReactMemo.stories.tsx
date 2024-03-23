@@ -11,6 +11,7 @@ const NewMessagesCounter = (props: { count: number }) => {
 }
 
 const UsersSecret = (props: { users: Array<string> }) => {
+  console.log("USERS")
   return (
     <div>
       {props.users.map((user, index) => {
@@ -24,12 +25,12 @@ const UsersSecret = (props: { users: Array<string> }) => {
 
 const Users = React.memo(UsersSecret)
 
-export const Example1 = () => {
+export const ReactMemo = () => {
   const [counter, setCounter] = useState(0)
-  const [users, setUsers] = useState(["Dymych", "Valera", "Artem"])
+  const [users, setUsers] = useState(["Dymych", "Valera", "Artem", "Katya"])
 
   const addUsers = () => {
-    setUsers([...users, "Sveta"])
+    setUsers([...users, "Sveta " + new Date().getTime()])
   }
 
   return (
