@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react"
+import React, { useCallback, useMemo, useState } from "react"
 
 export default {
   title: "useMemo stroies"
@@ -68,8 +68,7 @@ export const helpToReactMemo = () => {
 
   return (
     <>
-      <button onClick={() => { setCounter(counter + 1) }}>+</button>
-      {counter}
+      <button onClick={() => { setCounter(counter + 1) }}>+</button> {counter}
       <hr />
       <button onClick={addUsers}>add user</button>
       <Users users={newArray} />
